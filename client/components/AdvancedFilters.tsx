@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Slider } from "@/components/ui/slider";
 
 interface FiltersProps {
   category?: string;
 }
 
 export default function AdvancedFilters({ category = "jobs" }: FiltersProps) {
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState(75);
   const [filters, setFilters] = useState({
     priceRange: true,
     recentlyPosted: true,
@@ -64,10 +62,12 @@ export default function AdvancedFilters({ category = "jobs" }: FiltersProps) {
             {option.id === "priceRange" ? (
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <Checkbox
+                  <input
+                    type="checkbox"
                     checked={filters.priceRange}
-                    onCheckedChange={() => handleCheckChange("priceRange")}
+                    onChange={() => handleCheckChange("priceRange")}
                     id={option.id}
+                    className="w-4 h-4 accent-primary rounded"
                   />
                   <label
                     htmlFor={option.id}
@@ -78,26 +78,28 @@ export default function AdvancedFilters({ category = "jobs" }: FiltersProps) {
                 </div>
                 {filters.priceRange && (
                   <div className="ml-6 space-y-3">
-                    <Slider
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
                       value={priceRange}
-                      onValueChange={setPriceRange}
-                      min={0}
-                      max={100}
-                      step={1}
-                      className="w-full"
+                      onChange={(e) => setPriceRange(parseInt(e.target.value))}
+                      className="w-full accent-primary"
                     />
                     <div className="text-xs text-muted-foreground">
-                      ${priceRange[0]} - ${priceRange[1]}
+                      $0 - ${priceRange}
                     </div>
                   </div>
                 )}
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <Checkbox
+                <input
+                  type="checkbox"
                   checked={filters[option.id as keyof typeof filters] as boolean}
-                  onCheckedChange={() => handleCheckChange(option.id)}
+                  onChange={() => handleCheckChange(option.id)}
                   id={option.id}
+                  className="w-4 h-4 accent-primary rounded"
                 />
                 <label
                   htmlFor={option.id}
