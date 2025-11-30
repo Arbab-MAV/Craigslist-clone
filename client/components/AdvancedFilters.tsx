@@ -54,7 +54,9 @@ export default function AdvancedFilters({ category = "jobs" }: FiltersProps) {
 
   return (
     <div className="w-full md:w-56 bg-white p-6 rounded-lg border border-border">
-      <h2 className="text-lg font-bold text-foreground mb-6">Advanced Filters</h2>
+      <h2 className="text-lg font-bold text-foreground mb-6">
+        Advanced Filters
+      </h2>
 
       <div className="space-y-4">
         {getFilterOptions().map((option) => (
@@ -96,7 +98,9 @@ export default function AdvancedFilters({ category = "jobs" }: FiltersProps) {
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  checked={filters[option.id as keyof typeof filters] as boolean}
+                  checked={
+                    filters[option.id as keyof typeof filters] as boolean
+                  }
                   onChange={() => handleCheckChange(option.id)}
                   id={option.id}
                   className="w-4 h-4 accent-primary rounded"

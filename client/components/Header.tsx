@@ -27,7 +27,9 @@ export default function Header() {
           <div className="flex items-center gap-4 flex-shrink-0">
             <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
               <User className="w-5 h-5" />
-              <span className="text-sm text-muted-foreground hidden sm:inline">account</span>
+              <span className="text-sm text-muted-foreground hidden sm:inline">
+                account
+              </span>
             </button>
             <button className="px-4 py-2 bg-primary text-primary-foreground rounded font-semibold text-sm hover:bg-opacity-90 transition-all">
               Post

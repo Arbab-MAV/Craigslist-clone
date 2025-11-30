@@ -22,11 +22,7 @@ export default function ListingCard({
       {/* Image Container */}
       <div className="h-40 bg-gray-200 overflow-hidden flex items-center justify-center">
         {image ? (
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
-          />
+          <img src={image} alt={title} className="w-full h-full object-cover" />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
             <span>Image</span>
@@ -49,7 +45,9 @@ export default function ListingCard({
 
         <h3 className="font-bold text-foreground text-sm mb-1">{title}</h3>
 
-        <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{description}</p>
+        <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+          {description}
+        </p>
 
         {/* Rating */}
         <div className="flex items-center gap-1">

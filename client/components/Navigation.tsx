@@ -6,7 +6,10 @@ interface NavigationProps {
   onCategoryChange?: (category: string) => void;
 }
 
-export default function Navigation({ activeCategory = "jobs", onCategoryChange }: NavigationProps) {
+export default function Navigation({
+  activeCategory = "jobs",
+  onCategoryChange,
+}: NavigationProps) {
   const [active, setActive] = useState(activeCategory);
 
   const categories = [
